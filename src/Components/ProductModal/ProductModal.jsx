@@ -1,45 +1,29 @@
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import Dialog from '@mui/material/Dialog';
 import { Button } from '@mui/material';
 import { IoIosHeartEmpty, IoMdClose } from 'react-icons/io';
 import Rating from '@mui/material/Rating';
-import Slider from 'react-slick';
 import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 import QuantityCount from '../QuantityCount/QuantityCount';
 import { MdOutlineCompareArrows } from 'react-icons/md';
 import { MyContext } from '../../App';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
 
 const ProductModal = (props) => {
+
+    const [slideIndex, setSlideIndex] = useState(0);
 
     const zoomSliderBig = useRef();
     const zoomSlider = useRef();
 
     const context = useContext(MyContext);
 
-    var settings = {
-        dots: false,
-        infinite: false,
-        speed: 500,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        fade: false,
-        arrows: true,
-    };
-
-    var settings2 = {
-        dots: false,
-        infinite: false,
-        speed: 700,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        fade: false,
-        arrows: false,
-    };
-
     const goto = (index) => {
-        zoomSlider.current.slickGoTo(index);
-        zoomSliderBig.current.slickGoTo(index);
+        setSlideIndex(index);
+        zoomSlider.current.swiper.slideTo(index);
+        zoomSliderBig.current.swiper.slideTo(index);
     }
     
 
@@ -62,41 +46,84 @@ const ProductModal = (props) => {
                     <div className='col-md-5'>
                         <div className='productZoom position-relative'>
                         <div className='badge badge-primary'>23%</div>
-                            <Slider {...settings2} className='zoomSliderBig' ref={zoomSliderBig}>
-                                <div className='item'>
-                                    <InnerImageZoom
-                                        zoomType="hover" zoomScale={1}
-                                        src={`https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-62.jpg`}
-                                        />
-                                </div>
-                                <div className='item'>
-                                    <InnerImageZoom
-                                        zoomType="hover" zoomScale={1}
-                                        src={`https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image2-47.jpg`}
-                                        />
-                                </div>
-                                <div className='item'>
-                                    <InnerImageZoom
-                                        zoomType="hover" zoomScale={1}
-                                        src={`https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image3-35.jpg`}
-                                        />
-                                </div>
-                            </Slider>
+                            <Swiper
+                                slidesPerView={1}
+                                spaceBetween={0}
+                                navigation={false}
+                                slidesPerGroup={1}
+                                modules={[Navigation]}
+                                className='zoomSliderBig'
+                                ref={zoomSliderBig}
+                            >   
+                                <SwiperSlide>
+                                    <div className='item'>
+                                        <InnerImageZoom
+                                            zoomType="hover" zoomScale={1}
+                                            src={`https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-62.jpg`}
+                                            />
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <div className='item'>
+                                        <InnerImageZoom
+                                            zoomType="hover" zoomScale={1}
+                                            src={`https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image2-47.jpg`}
+                                            />
+                                    </div>
+                                </SwiperSlide>
+                                <SwiperSlide>
+                                    <div className='item'>
+                                        <InnerImageZoom
+                                            zoomType="hover" zoomScale={1}
+                                            src={`https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image3-35.jpg`}
+                                            />
+                                    </div>
+                                </SwiperSlide>
+
+                                <SwiperSlide>
+                                    <div className='item'>
+                                        <InnerImageZoom
+                                            zoomType="hover" zoomScale={1}
+                                            src={`https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image3-35.jpg`}
+                                            />
+                                    </div>
+                                </SwiperSlide>
+                            </Swiper>
                         </div>
 
-                        <Slider {...settings} className='zoomSlider' ref={zoomSlider}>
-                            <div className='item'>
-                                <img src={`https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-62.jpg`}  className='w-100' alt='pro-img' onClick={() => goto(0)}/>
-                            </div>
+                        <Swiper  
+                            slidesPerView={3}
+                            spaceBetween={0}
+                            navigation={true}
+                            slidesPerGroup={1}
+                            modules={[Navigation]}
+                            className='zoomSlider' 
+                            ref={zoomSlider}
+                        >
+                            <SwiperSlide>
+                                <div className={`item ${slideIndex===0 && 'item_active'}`}>
+                                    <img src={`https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-62.jpg`}  className='w-100' alt='pro-img' onClick={() => goto(0)}/>
+                                </div>
+                            </SwiperSlide>
 
-                            <div className='item'>
-                                <img src={`https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image2-47.jpg`}  className='w-100' alt='pro-img' onClick={() => goto(1)}/>
-                            </div>
+                            <SwiperSlide>
+                                <div className={`item ${slideIndex===1 && 'item_active'}`}>
+                                    <img src={`https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image2-47.jpg`}  className='w-100' alt='pro-img' onClick={() => goto(1)}/>
+                                </div>
+                            </SwiperSlide>
 
-                            <div className='item'>
-                                <img src={`https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image3-35.jpg`}  className='w-100' alt='pro-img' onClick={() => goto(2)}/>
-                            </div>
-                        </Slider>
+                            <SwiperSlide>
+                                <div className={`item ${slideIndex===2 && 'item_active'}`}>
+                                    <img src={`https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image3-35.jpg`}  className='w-100' alt='pro-img' onClick={() => goto(2)}/>
+                                </div>
+                            </SwiperSlide>
+
+                            <SwiperSlide>
+                                <div className={`item ${slideIndex===2 && 'item_active'}`}>
+                                    <img src={`https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image3-35.jpg`}  className='w-100' alt='pro-img' onClick={() => goto(3)}/>
+                                </div>
+                            </SwiperSlide>
+                        </Swiper>
                     </div>
 
                     <div className='col-md-7'>
