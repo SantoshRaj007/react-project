@@ -8,6 +8,7 @@ import axios from "axios";
 import Footer from "./Components/Footer/Footer";
 import ProductModal from "./Components/ProductModal/ProductModal";
 import Listing from "./Pages/Listing/Listing";
+import ProductDetails from "./Pages/ProductDetails/ProductDetails";
 
 const MyContext = createContext();
 
@@ -45,6 +46,7 @@ function App() {
             <Routes>
                 <Route path="/" exact={true} element={<Home/>} />
                 <Route path="/cat/:id" exact={true} element={<Listing/>} />
+                <Route exact={true} path="/product/:id" element={<ProductDetails />} />
             </Routes>
         <Footer/> 
         {

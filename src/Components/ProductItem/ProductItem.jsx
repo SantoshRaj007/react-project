@@ -6,7 +6,7 @@ import Rating from '@mui/material/Rating';
 import { FaRegHeart } from "react-icons/fa6";
 import { MyContext } from '../../App';
 
-const ProductItem = () => {
+const ProductItem = (props) => {
 
     const context = useContext(MyContext);
 
@@ -18,7 +18,7 @@ const ProductItem = () => {
 
     return (
         <>
-            <div className="item productItem">
+            <div className={`productItem ${props.itemView}`}>
                 <div className="imageWrapper">
                     <img src={item1} alt="product-img" className="w-100" />
                     <span className="badge badge-primary">25%</span>
