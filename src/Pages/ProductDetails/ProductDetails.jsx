@@ -4,10 +4,16 @@ import React, { useState } from 'react'
 import ProductZoom from '../../Components/ProductZoom/ProductZoom'
 import QuantityCount from '../../Components/QuantityCount/QuantityCount'
 import { BsCartFill } from 'react-icons/bs'
+import { FaRegHeart } from 'react-icons/fa6'
+import { MdOutlineCompareArrows } from 'react-icons/md'
+import Tooltip from '@mui/material/Tooltip';
+import image1 from '../../assets/product/product1.jpg'
 
 const ProductDetails = () => {
 
     const [activeSize, setActiveSize] = useState(null);
+
+    const [activeTabs, setActiveTabs] = useState(0);
 
     const isActive = (index) => {
         setActiveSize(index);
@@ -60,14 +66,105 @@ const ProductDetails = () => {
                             <div className='d-flex align-items-center mt-3'>
                                 <QuantityCount/>
                                 <Button className='btn-blue btn-lg btn-big btn-round'><BsCartFill /> &nbsp; Add to cart</Button>
-
-                                <Button className='btn-blue btn-lg btn-big btn-circle ml-4'>                                    
-                                    <BsCartFill/>
-                                </Button>
+                                <Tooltip title="Add to wishlist" placement='top'>
+                                    <Button className='btn-blue btn-lg btn-big btn-circle ml-4'>                                    
+                                        <FaRegHeart/>
+                                    </Button>
+                                </Tooltip>
+                                
+                                <Tooltip title="Add to Compare" placement='top'>
+                                    <Button className='btn-blue btn-lg btn-big btn-circle ml-4'>                                    
+                                        <MdOutlineCompareArrows/>
+                                    </Button>
+                                </Tooltip>
                             </div>
 
                         </div>
                     </div>
+
+                    <div className='card mt-5 p-5 detailsPageTabs'>
+                        <div className='customTabs'>
+                            <ul className='list list-inline'>
+                                <li className='list-inline-item'>
+                                    <Button className={`${activeTabs === 0 && 'active'}`} onClick={() => {setActiveTabs(0)}}>Description</Button>
+                                </li>
+
+                                <li className='list-inline-item'>
+                                    <Button className={`${activeTabs === 1 && 'active'}`} onClick={() => {setActiveTabs(1)}}>Additional info</Button>
+                                </li>
+
+                                <li className='list-inline-item'>
+                                    <Button className={`${activeTabs === 2 && 'active'}`} onClick={() => {setActiveTabs(2)}}>Reviews (3)</Button>
+                                </li>
+                            </ul>
+                            <br/>
+
+                            {
+                                activeTabs === 0 &&
+                                <div className='tabContent'>
+                                    {/* <p>{currentProduct.description}</p> */}
+                                </div>
+                            }
+
+                            {
+                                activeTabs === 1 &&
+                                <div className='tabContent'>
+                                    <div className='table-responsive'>
+                                        <table className='table table-bordered'>
+                                            <tbody>
+                                                <tr className='stand-up'>
+                                                    <th>Brands</th>
+                                                    <td>
+                                                        <p>Puma</p>
+                                                    </td>
+                                                </tr>
+                                                <tr className='folded-wo-wheels'>
+                                                    <th>Size</th>
+                                                    <td>
+                                                        <p>M</p>
+                                                    </td>
+                                                </tr>
+                                                <tr className='folded-w-wheels'>
+                                                    <th>Material</th>
+                                                    <td>
+                                                        <p>Cotton</p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            }
+
+                            {
+                                activeTabs === 2 &&
+                                <div className='tabContent'>
+                                    <div className='row'>
+                                        <div className='col-md-8'>
+                                            <h3>Customer questions & answers</h3>
+                                            <br/>
+
+                                            <div className='card p-4 reviewsCard flex-row'>
+                                                <div className='image'>
+                                                    <div className='rounded-circul'>
+                                                        <img src={image1} alt='imgae'/>
+                                                    </div>
+                                                    <span className='text-g d-block text-center font-weight-bold'>Santosh Singh</span>
+                                                </div>
+
+                                                <div className='info pl-5'>
+                                                    <div className='d-flex align-items-center w-100'>
+                                                        <h5 className='text-light'>Review</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
                 </div>
             </section>
         </>
