@@ -82,6 +82,8 @@ const ProductDetails = () => {
                         </div>
                     </div>
 
+                    <br/>
+
                     <div className='card mt-5 p-5 detailsPageTabs'>
                         <div className='customTabs'>
                             <ul className='list list-inline'>
@@ -102,7 +104,7 @@ const ProductDetails = () => {
                             {
                                 activeTabs === 0 &&
                                 <div className='tabContent'>
-                                    {/* <p>{currentProduct.description}</p> */}
+                                    <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”</p>
                                 </div>
                             }
 
@@ -138,6 +140,7 @@ const ProductDetails = () => {
 
                             {
                                 activeTabs === 2 &&
+                                
                                 <div className='tabContent'>
                                     <div className='row'>
                                         <div className='col-md-8'>
@@ -146,7 +149,7 @@ const ProductDetails = () => {
 
                                             <div className='card p-4 reviewsCard flex-row'>
                                                 <div className='image'>
-                                                    <div className='rounded-circul'>
+                                                    <div className='rounded-circle'>
                                                         <img src={image1} alt='imgae'/>
                                                     </div>
                                                     <span className='text-g d-block text-center font-weight-bold'>Santosh Singh</span>
@@ -154,9 +157,58 @@ const ProductDetails = () => {
 
                                                 <div className='info pl-5'>
                                                     <div className='d-flex align-items-center w-100'>
-                                                        <h5 className='text-light'>Review</h5>
+                                                        <h5 className='text-light'>01/03/2024</h5>
+                                                        <div className='ml-auto'>
+                                                            <Rating name='half-rating-read' value={4.5} precision={0.5} readOnly />
+                                                        </div>
+                                                    </div>
+                                                    <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”</p>
+                                                </div>
+                                            </div>
+
+                                            <br className='res-hide'/>
+
+                                            <br className='res-hide'/>
+
+                                            <form className='reviewForm'>
+                                                <h4>Add a review</h4><br/>
+
+                                                <div className='form-group'>
+                                                    <textarea className='form-control' placeholder='Write a Review' name='review'></textarea>
+                                                </div>
+
+                                                <div className='row'>
+                                                    <div className='col-md-6'>
+                                                        <div className='form-group'>
+                                                            <input type='text' className='form-control' placeholder='Name' name='userName' />
+                                                        </div>
+                                                    </div>
+
+                                                    <div className='col-md-6'>
+                                                        <div className='form-group'>
+                                                            <Rating name='rating' value={4.5} precision={0.5} />
+                                                        </div>
                                                     </div>
                                                 </div>
+
+                                                <br/>
+                                                <div className='form-group'>
+                                                    <Button className='btn-blue btn-big btn-lg btn-round' type='submit'>Submit Review</Button>
+                                                </div>
+
+                                            </form>
+
+                                        </div>
+
+                                        <div className='col-md-4'>
+                                            <h3>Customer reviews</h3>
+                                            <div className='detailsPageTabs'>
+                                                <ul className='list list-inline'>
+                                                    <li className='list-inline-item'>
+                                                    <Rating name='rating' value={4.5} precision={0.5} readOnly />
+                                                    </li>
+                                                    <li className='list-inline-item'>4.8 out of 5</li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
