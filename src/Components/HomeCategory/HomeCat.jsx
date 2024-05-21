@@ -1,30 +1,31 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
+import { proData } from '../../assets/product';
 
 const HomeCat = () => {
-    const [itemBg] = useState([
-        '#fffceb',
-        '#ecffec',
-        '#feefea',
-        '#fff3eb',
-        '#fff3ff',
-        '#f2fce4',
-        '#feefea',
-        '#fffceb',
-        '#feefea',
-        '#ecffec',
-        '#feefea',
-        '#fff3eb',
-        '#fff3ff',
-        '#f2fce4',
-        '#feefea',
-        '#fffceb',
-        '#feefea',
-        '#ecffec'
-    ]);
+    // const [itemBg] = useState([
+    //     '#fffceb',
+    //     '#ecffec',
+    //     '#feefea',
+    //     '#fff3eb',
+    //     '#fff3ff',
+    //     '#f2fce4',
+    //     '#feefea',
+    //     '#fffceb',
+    //     '#feefea',
+    //     '#ecffec',
+    //     '#feefea',
+    //     '#fff3eb',
+    //     '#fff3ff',
+    //     '#f2fce4',
+    //     '#feefea',
+    //     '#fffceb',
+    //     '#feefea',
+    //     '#ecffec'
+    // ]);
 
     return (
         <section className="homeCat">
@@ -39,12 +40,12 @@ const HomeCat = () => {
                     className="mySwiper"
                 >
                 {
-                    itemBg?.map((item,index)=>{
+                    proData?.map((item,index)=>{
                         return(
-                            <SwiperSlide>
-                                <div className='item text-center cursor' key={index} style={{background: item}}>
-                                    <img src='https://m.media-amazon.com/images/G/31/img21/MA2023/DECWRS/Premium/Gildan_770x566._SS400_QL85_FMpng_.png' alt='item' />
-                                    <h6>Men T-Shirt</h6>
+                            <SwiperSlide key={index}>
+                                <div className='item text-center cursor'  style={{background: item.bgColor}}>
+                                    <img src={item.image} alt='item' />
+                                    <h6 className='mt-2'>{item.name.slice(0,10)}</h6>
                                 </div>
                             </SwiperSlide>
                         )

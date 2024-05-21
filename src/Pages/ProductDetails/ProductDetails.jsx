@@ -8,6 +8,7 @@ import { FaRegHeart } from 'react-icons/fa6'
 import { MdOutlineCompareArrows } from 'react-icons/md'
 import Tooltip from '@mui/material/Tooltip';
 import image1 from '../../assets/product/product1.jpg'
+import RelatedProducts from './RelatedProducts/RelatedProducts'
 
 const ProductDetails = () => {
 
@@ -159,7 +160,7 @@ const ProductDetails = () => {
                                                     <div className='d-flex align-items-center w-100'>
                                                         <h5 className='text-light'>01/03/2024</h5>
                                                         <div className='ml-auto'>
-                                                            <Rating name='half-rating-read' value={4.5} precision={0.5} readOnly />
+                                                            <Rating name='half-rating-read' size='small' value={4.5} precision={0.5} readOnly />
                                                         </div>
                                                     </div>
                                                     <p>“Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.”</p>
@@ -171,7 +172,7 @@ const ProductDetails = () => {
                                             <br className='res-hide'/>
 
                                             <form className='reviewForm'>
-                                                <h4>Add a review</h4><br/>
+                                                <h4>Add a review</h4>
 
                                                 <div className='form-group'>
                                                     <textarea className='form-control' placeholder='Write a Review' name='review'></textarea>
@@ -200,23 +201,24 @@ const ProductDetails = () => {
 
                                         </div>
 
-                                        <div className='col-md-4'>
-                                            <h3>Customer reviews</h3>
-                                            <div className='detailsPageTabs'>
-                                                <ul className='list list-inline'>
-                                                    <li className='list-inline-item'>
-                                                    <Rating name='rating' value={4.5} precision={0.5} readOnly />
-                                                    </li>
-                                                    <li className='list-inline-item'>4.8 out of 5</li>
-                                                </ul>
+                                        {/* <div className='col-md-4 pl-5 reviewBox'>
+                                            <h4>Customer reviews</h4>
+                                            <div className='d-flex align-items-center mt-2'>
+                                                <Rating name='hlf-rating-read' defaultValue={4.5} precision={0.5} readOnly />
+                                                <strong className='ml-3'>4.8 out 0f 5</strong>
                                             </div>
-                                        </div>
+
+                                        </div> */}
                                     </div>
                                 </div>
                             }
                         </div>
                     </div>
+                    
+                    <br/>
 
+                    <RelatedProducts title="RELATED PRODUCTS"/>
+                    <RelatedProducts title="RECENTLY VIEWED PRODUCTS"/>
                 </div>
             </section>
         </>

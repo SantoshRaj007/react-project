@@ -3,6 +3,7 @@ import InnerImageZoom from 'react-inner-image-zoom';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
+import { proData } from '../../assets/product';
 
 const ProductZoom = () => {
 
@@ -29,39 +30,19 @@ const ProductZoom = () => {
                     className='zoomSliderBig'
                     ref={zoomSliderBig}
                 >   
-                    <SwiperSlide>
-                        <div className='item'>
-                            <InnerImageZoom
-                                zoomType="hover" zoomScale={1}
-                                src={`https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-62.jpg`}
-                            />
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='item'>
-                            <InnerImageZoom
-                                zoomType="hover" zoomScale={1}
-                                src={`https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image2-47.jpg`}
-                            />
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='item'>
-                            <InnerImageZoom
-                                zoomType="hover" zoomScale={1}
-                                src={`https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image3-35.jpg`}
-                            />
-                        </div>
-                    </SwiperSlide>
-
-                    <SwiperSlide>
-                        <div className='item'>
-                            <InnerImageZoom
-                                zoomType="hover" zoomScale={1}
-                                src={`https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image3-35.jpg`}
-                            />
-                        </div>
-                    </SwiperSlide>
+                    {
+                        proData?.map((item,index)=>{
+                        return(
+                        <SwiperSlide key={index}>
+                            <div className='item'>
+                                <InnerImageZoom
+                                    zoomType="hover" zoomScale={1}
+                                    src={item.image}
+                                />
+                            </div>
+                        </SwiperSlide>
+                        )})
+                    }
                 </Swiper>
             </div>
 
@@ -74,29 +55,17 @@ const ProductZoom = () => {
                 className='zoomSlider' 
                 ref={zoomSlider}
             >
-                <SwiperSlide>
-                    <div className={`item ${slideIndex===0 && 'item_active'}`}>
-                        <img src={`https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image-62.jpg`}  className='w-100' alt='pro-img' onClick={() => goto(0)}/>
-                    </div>
-                </SwiperSlide>
-
-                <SwiperSlide>
-                    <div className={`item ${slideIndex===1 && 'item_active'}`}>
-                        <img src={`https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image2-47.jpg`}  className='w-100' alt='pro-img' onClick={() => goto(1)}/>
-                    </div>
-                </SwiperSlide>
-
-                <SwiperSlide>
-                    <div className={`item ${slideIndex===2 && 'item_active'}`}>
-                        <img src={`https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image3-35.jpg`}  className='w-100' alt='pro-img' onClick={() => goto(2)}/>
-                    </div>
-                </SwiperSlide>
-
-                <SwiperSlide>
-                    <div className={`item ${slideIndex===2 && 'item_active'}`}>
-                        <img src={`https://klbtheme.com/bacola/wp-content/uploads/2021/04/product-image3-35.jpg`}  className='w-100' alt='pro-img' onClick={() => goto(3)}/>
-                    </div>
-                </SwiperSlide>
+                {
+                    proData.map((item,index)=>{
+                        return (
+                            <SwiperSlide key={index}>
+                                <div className={`item ${slideIndex===0 && 'item_active'}`}>
+                                    <img src={item.image}  className='w-100' alt='pro-img' onClick={() => goto(item.id)}/>
+                                </div>
+                            </SwiperSlide>
+                        )
+                    })
+                }
             </Swiper>
         </>
     )
