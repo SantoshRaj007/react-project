@@ -636,6 +636,18 @@ footer .copyright ul li a:hover svg{color: #fff !important;}
 
 .cartPage .table thead th:last-child{border-top-right-radius: 10px !important; border-bottom-right-radius: 10px !important;}
 
+a:hover{text-decoration: none;}
+
+.cartItemimgWrapper{width: 380px;}
+
 .cartItemimgWrapper .imgWrapper{width: 100px; overflow: hidden;}
 
 .cartItemimgWrapper .info a:hover{text-decoration: none;}
+
+.cartItemimgWrapper .info h6{color: #343434; font-weight: bold;}
+
+.cartItemimgWrapper .info h6:hover{color: #ed174a !important;}
+
+.remove{cursor: pointer;}
+
+.remove svg{font-size: 30px;}

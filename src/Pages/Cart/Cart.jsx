@@ -1,6 +1,8 @@
 import { Rating } from '@mui/material'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import QuantityCount from '../../Components/QuantityCount/QuantityCount'
+import { IoIosClose } from 'react-icons/io'
 
 const Cart = () => {
   return (
@@ -16,20 +18,20 @@ const Cart = () => {
                             <table className="table">
                                 <thead>
                                     <tr>
-                                        <th>Product</th>
-                                        <th>Unit Price</th>
-                                        <th>Quantity</th>
-                                        <th>Subtotal</th>
-                                        <th>Remove</th>
+                                        <th width="45%">Product</th>
+                                        <th width="15%">Unit Price</th>
+                                        <th width="15%">Quantity</th>
+                                        <th width="15%">Subtotal</th>
+                                        <th width="10%">Remove</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>
+                                        <td width="45%">
                                         <Link to="/product/1">
                                             <div className="d-flex align-items-center cartItemimgWrapper">
                                                 <div className="imgWrapper">
-                                                    <img className="w-100" src="http://localhost:3001/static/media/product1.49d36142f4b56d65824b.jpg" alt='img' />
+                                                    <img className="w-100" src="http://localhost:3000/static/media/product1.49d36142f4b56d65824b.jpg" alt='img' />
                                                 </div>
                                                 <div className="info px-3">
                                                     <h6>Striped Slim Fit Shirt with Button-Down Collar</h6>
@@ -38,10 +40,12 @@ const Cart = () => {
                                             </div>
                                         </Link>
                                         </td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td width="15%">$7.25</td>
+                                        <td width="15%">
+                                            <QuantityCount />
+                                        </td>
+                                        <td width="15%">$7.25</td>
+                                        <td width="10%"><span className='remove'><IoIosClose /></span></td>
                                     </tr>
                                 </tbody>
                             </table>
