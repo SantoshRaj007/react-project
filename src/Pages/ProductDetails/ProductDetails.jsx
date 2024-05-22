@@ -66,7 +66,7 @@ const ProductDetails = () => {
  
                             <div className='d-flex align-items-center mt-3'>
                                 <QuantityCount/>
-                                <Button className='btn-blue btn-lg btn-big btn-round'><BsCartFill /> &nbsp; Add to cart</Button>
+                                <Button className='btn-blue bg-red btn-lg btn-big btn-round'><BsCartFill /> &nbsp; Add to cart</Button>
                                 <Tooltip title="Add to wishlist" placement='top'>
                                     <Button className='btn-blue btn-lg btn-big btn-circle ml-4'>                                    
                                         <FaRegHeart/>

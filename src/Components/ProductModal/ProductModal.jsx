@@ -11,6 +11,7 @@ import { MyContext } from '../../App';
 // import { Swiper, SwiperSlide } from 'swiper/react';
 // import { Navigation } from 'swiper/modules';
 import ProductZoom from '../ProductZoom/ProductZoom';
+import { IoCartSharp } from 'react-icons/io5';
 
 const ProductModal = (props) => {
     
@@ -48,7 +49,7 @@ const ProductModal = (props) => {
                         <div className='d-flex align-items-center'>
                             <QuantityCount/>
 
-                            <Button className='btn-blue btn-lg btn-big btn-round ml-3'>Add to cart</Button>
+                            <Button className='btn-blue bg-red btn-lg btn-big btn-round ml-3'><IoCartSharp/>Add to cart</Button>
                         </div>
 
                         <div className='d-flex align-items-center mt-5 actions'>

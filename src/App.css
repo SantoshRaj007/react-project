@@ -25,13 +25,19 @@ button{text-transform: capitalize !important;}
 
 .btn-blue{background: #6d4aae !important; color: #fff !important; text-transform: capitalize !important;}
 
-.btn-big{font-size: 15px !important; padding: 7px 20px !important;}
+.btn-big{font-size: 15px !important; padding: 7px 30px !important; min-width: auto !important; font-weight: bold !important;}
 
 .btn-sml{font-size: 12px !important; color: #000; text-transform: capitalize !important;}
 
 .btn-sml svg{font-size: 20px;}
 
+.bg-red{background: #ed174a !important;}
+
+.bg-red:hover{background: #233a95 !important;}
+
 .btn-round{border-radius: 30px !important;}
+
+.btn-blue svg{font-size: 20px;}
 
 .btn-circle{border-radius: 50% !important; min-width: auto !important;}
 
@@ -40,6 +46,10 @@ button{text-transform: capitalize !important;}
 .text-light{color: #8b8b8b !important;}
 
 .text-sml{font-size: 14px;}
+
+.text-red{color: #ed174a !important;}
+
+.text-blue{color: #233a95 !important;}
 
 ::-webkit-scrollbar{ width: 8px !important; height: 8px !important;}
 ::-webkit-scrollbar-thumb{background: #ccc !important;}
@@ -638,7 +648,7 @@ footer .copyright ul li a:hover svg{color: #fff !important;}
 
 a:hover{text-decoration: none;}
 
-.cartItemimgWrapper{width: 380px;}
+.cartItemimgWrapper{width: 280px;}
 
 .cartItemimgWrapper .imgWrapper{width: 100px; overflow: hidden;}
 
@@ -651,3 +661,28 @@ a:hover{text-decoration: none;}
 .remove{cursor: pointer;}
 
 .remove svg{font-size: 30px;}
+
+.remove:hover svg{color: #ed174a !important;}
+
+.cartPage .quantityDrop button{zoom: 75%}
+
+.cartPage table th, .cartPage table td{vertical-align: middle;}
+
+.cartPage .table td, .cartPage .table th{border-top: 0px !important; border-bottom: 1px solid rgba(0,0,0,0.1) !important;}
+
+.cartPage table tbody tr:hover{background: #f4f4f4 !important;}
+
+.cardDetails{border-radius: 7px;}
+
+.cardDetails h4{font-size: 16px; font-weight: 800; border-bottom: 1px solid rgba(0,0,0,0.1) !important; padding-bottom: 10px !important;}
+
+/* Login and Register page css */
+
+.signInPage{width: 100%; height: 100vh; position: relative; overflow: hidden;}
+
+.signInPage .shape-bottom { position: absolute; top: auto; bottom: -6px; left: 0; right: 0; z-index: 1;}
+
+.signInPage::after{position: absolute; content: ''; height: 100%; width: 100%; top: 0; left: 0; background-image: linear-gradient(#1e3d81, #2334a3); opacity: 0.9; z-index: -1;}
+
+.signInPage .box{width: 400px; height: 500px; background: #f1f1f1; margin: auto;}
+
